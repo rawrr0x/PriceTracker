@@ -1,0 +1,20 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 98vw;
+    height: 10vh;
+    padding-left: 15px;
+    padding-right: 15px;
+    top: 0;
+    z-index: 1000;
+    position: fixed;
+    background: rgba(255, 255, 255, 0); /* прозрачный фон */
+    backdrop-filter: blur(3.5px); /* размывает то, что сзади */
+}
+
+.headerTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

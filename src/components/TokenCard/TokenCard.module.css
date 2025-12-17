@@ -1,0 +1,51 @@
+.tokenCard {
+    width: 65vw;
+    height: 9vh;
+    border: 1px solid #565656;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px auto;
+    border-radius: 8px;
+    transition: 100ms;
+}
+
+.tokenCard h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tokenCard:hover {
+    width: 66vw;
+    box-shadow: 0 0 15px 0 #565656;
+    background-color: #2e2e2e;
+}
+
+.price {
+    color: #c9c9c9;
+}
+
+.pricePump {
+    color: rgba(79, 183, 79, 1);
+}
+
+.priceDump {
+    color: #c81515;
+}
+
+@media(max-width: 440px) {
+    .tokenCard {
+        width: 90vw;
+        margin: 5px auto;
+        height: 6vh;
+    }
+
+    .tokenCard:hover {
+        width: 80vw;
+        height: 7vh;
+        box-shadow: 0 0 15px 0 #565656;
+        background-color: #2e2e2e;
+    }
+}
