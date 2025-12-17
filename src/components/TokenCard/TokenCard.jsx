@@ -1,19 +1,28 @@
 import { useState } from "react"
 import cl from './TokenCard.module.css'
 
-const TokenCard = ({token, ticker}) => {
+const TokenCard = ({token}) => {
     return(
         <div className={cl.tokenCard}>
-            <h2>{ticker}/USD</h2>
-            <h2 className={
-                token.usd_24h_change >= 0
+            <div className={cl.tokenCardHeader}>
+                <div className={cl.tokenCardHeaderTitle}>
+            <img src={token.image} alt="" />
+            <h3>{token.symbol.toUpperCase()}/USD</h3>
+                </div>
+            <h3 className={
+                token.price_change_percentage_24h >= 0
                 ? cl.pricePump
                 : cl.priceDump
-            }>{token.usd}{
-                token.usd_24h_change >= 0
+            }>{token.current_price}{
+                token.price_change_percentage_24h >= 0
                 ? <p>&#128200;</p>
                 : <p>&#128201;</p>
-            }</h2>
+            }</h3>
+            </div>
+            <div className={cl.tokenCardFooter}>
+                <h5>Market cap: {token.market_cap}$</h5>
+                <h5>ATH: {token.ath}$</h5>
+            </div>
         </div>
     )
 }

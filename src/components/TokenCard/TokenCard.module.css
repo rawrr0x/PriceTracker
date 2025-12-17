@@ -1,24 +1,52 @@
 .tokenCard {
     width: 65vw;
+    max-width: 65vw;
     height: 9vh;
+    max-height: 9vh;
     border: 1px solid #565656;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
     padding: 10px;
     margin: 5px auto;
     border-radius: 8px;
     transition: 100ms;
 }
 
-.tokenCard h2 {
+.tokenCardHeader img {
+    max-width: 6%;
+    max-height: 6%;
+    margin-right: 5px;
+}
+
+.tokenCardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 50%;
+}
+
+.tokenCardHeaderTitle {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    max-width: 50%;
+}
+
+.tokenCardFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 50%;
+}
+
+.tokenCard h3 {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .tokenCard:hover {
-    width: 66vw;
+    /* width: 66vw; */
     box-shadow: 0 0 15px 0 #565656;
     background-color: #2e2e2e;
 }
@@ -32,19 +60,19 @@
 }
 
 .priceDump {
-    color: #c81515;
+    color: rgb(205, 68, 68);
 }
 
 @media(max-width: 440px) {
     .tokenCard {
+        max-width: 90vw;
         width: 90vw;
         margin: 5px auto;
         height: 6vh;
     }
 
     .tokenCard:hover {
-        width: 80vw;
-        height: 7vh;
+        /* width: 80vw; */
         box-shadow: 0 0 15px 0 #565656;
         background-color: #2e2e2e;
     }

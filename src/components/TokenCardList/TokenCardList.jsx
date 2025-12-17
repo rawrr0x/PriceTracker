@@ -8,17 +8,9 @@ const TokenCardList = ({tokens}) => {
                 <h3>Token</h3>
                 <h3>Price $</h3>
             </div>
-            <TokenCard ticker={'BTC'} token={tokens.bitcoin}/>
-            <TokenCard ticker={'ETH'} token={tokens.ethereum}/>
-            <TokenCard ticker={'SOL'} token={tokens.solana}/>
-            <TokenCard ticker={'BNB'} token={tokens.binancecoin}/>
-            <TokenCard ticker={'HYPE'} token={tokens.hyperliquid}/>
-            <TokenCard ticker={'ARB'} token={tokens.arbitrum}/>
-            <TokenCard ticker={'LTC'} token={tokens.litecoin}/>
-            <TokenCard ticker={'TRX'} token={tokens.tron}/>
-            <TokenCard ticker={'SUI'} token={tokens.sui}/>
-            <TokenCard ticker={'XRP'} token={tokens.ripple}/>
-            <TokenCard ticker={'APT'} token={tokens.aptos}/>
+            {Object.entries(tokens).map((token) => 
+                <TokenCard token={token[1]} key={token[0]}/>
+            )}
         </div>
     )
 }
