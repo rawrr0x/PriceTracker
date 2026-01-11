@@ -76,4 +76,9 @@
         box-shadow: 0 0 15px 0 #565656;
         background-color: #2e2e2e;
     }
+
+    .tokenCardHeader img {
+        max-width: 10%;
+        max-height: 10%;
+    }
 }

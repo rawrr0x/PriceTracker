@@ -7,12 +7,9 @@ function App() {
   const [tokenInfo, setTokenInfo] = useState([])
   const [refresh, setRefresh] = useState(0)
 
-  const newUrl = 'https://api.coingecko.com/api/v3/coins/markets?' +
-    'vs_currency=usd&order=market_cap_desc&per_page=20&page=1' +
+  const url = 'https://api.coingecko.com/api/v3/coins/markets?' +
+    'vs_currency=usd&order=market_cap_desc&per_page=25&page=1' +
     '&sparkline=true&price_change_percentage=1h,24h,7d'
-
-
-  const url = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana,hyperliquid,litecoin,arbitrum,tron,sui,ripple,aptos,binancecoin&vs_currencies=usd&include_24hr_change=true'
 
   const getTokensJson = async (url) => {
     try {
@@ -27,7 +24,7 @@ function App() {
 
   useEffect(() => {
     const getTokensInfo = () => {
-      getTokensJson(newUrl)
+      getTokensJson(url)
       .then(json => {
         setTokenInfo(prev => ({
         ...prev,
