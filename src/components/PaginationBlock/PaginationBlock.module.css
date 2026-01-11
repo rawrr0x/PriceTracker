@@ -1,0 +1,7 @@
+.paginationBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 65vw;
+    margin: 3vh auto;
+}

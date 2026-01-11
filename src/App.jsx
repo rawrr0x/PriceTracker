@@ -1,30 +1,35 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import Header from './components/Header/Header'
-import TokenCardList from './components/TokenCardList/TokenCardList'
+import { useEffect, useMemo, useState } from 'react';
+import './App.css';
+import Header from './components/Header/Header';
+import TokenCardList from './components/TokenCardList/TokenCardList';
+import PaginationBlock from './components/PaginationBlock/PaginationBlock';
 
 function App() {
-  const [tokenInfo, setTokenInfo] = useState([])
-  const [refresh, setRefresh] = useState(0)
+  const [tokenInfo, setTokenInfo] = useState([]);
+  const [page, setPage] = useState(1);
+  const [refresh, setRefresh] = useState(0);
 
-  const url = 'https://api.coingecko.com/api/v3/coins/markets?' +
-    'vs_currency=usd&order=market_cap_desc&per_page=25&page=1' +
-    '&sparkline=true&price_change_percentage=1h,24h,7d'
+  // const url = 'https://api.coingecko.com/api/v3/coins/markets?' +
+  //   'vs_currency=usd&order=market_cap_desc&per_page=20&page=1' +
+  //   '&sparkline=true&price_change_percentage=1h,24h,7d'
 
-  const getTokensJson = async (url) => {
+  const getTokensJson = async () => {
     try {
-      const res = await fetch(url)
-      if(!res.ok) throw new Error(res.status)
-      const json = res.json()
-      return json
+      const res = await fetch('https://api.coingecko.com/api/v3/coins/markets?' +
+    `vs_currency=usd&order=market_cap_desc&per_page=20&page=${page}` +
+    '&sparkline=true&price_change_percentage=1h,24h,7d');
+      if(!res.ok) throw new Error(res.status);
+      const json = res.json();
+      console.log(json);
+      return json;
     } catch (error) {
-      console.error('fetch error: ', error)
+      console.error('fetch error: ', error);
     }
   }
 
   useEffect(() => {
     const getTokensInfo = () => {
-      getTokensJson(url)
+      getTokensJson()
       .then(json => {
         setTokenInfo(prev => ({
         ...prev,
@@ -32,8 +37,8 @@ function App() {
       }))
       })
     }
-    getTokensInfo()
-  }, [refresh])
+    getTokensInfo();
+  }, [refresh, page]);
 
   return (
     <>
@@ -45,6 +50,7 @@ function App() {
       ? <TokenCardList tokens={tokenInfo}/>
       : <h2>Tokens not found yet...</h2>
     }
+    <PaginationBlock page={page} setPage={setPage}/>
     </div>
     </>
   )
