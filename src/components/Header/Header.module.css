@@ -7,7 +7,7 @@
     padding-left: 15px;
     padding-right: 15px;
     top: 0;
-    z-index: 1000;
+    z-index: 900;
     position: fixed;
     background: rgba(255, 255, 255, 0); /* прозрачный фон */
     backdrop-filter: blur(3.5px); /* размывает то, что сзади */
@@ -17,4 +17,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.headerBtnFavorites {
+    border: none;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0); /* прозрачный фон */
+    backdrop-filter: blur(1px);
+    color: #ffffff;
+    transition: 150ms;
+}
+
+.headerBtnFavorites:hover {
+    color: #979797;
 }

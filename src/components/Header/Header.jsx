@@ -1,5 +1,6 @@
 import RefreshButton from '../Button/RefreshButton/RefreshButton'
 import cl from './Header.module.css'
+import { useContext } from 'react';
 
 const Header = ({refresh}) => {
     return(
@@ -8,6 +9,7 @@ const Header = ({refresh}) => {
                 <h2 style={{color: 'rgba(79, 183, 79, 1)'}}>Price</h2>
                 <h2 style={{color: '#ae3e3eff'}}>Tracker</h2>
             </div>
+            <button className={cl.headerBtnFavorites}>Favorites</button>
             <RefreshButton onClick={refresh}/>
         </header>
     )

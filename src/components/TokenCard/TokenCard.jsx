@@ -1,9 +1,19 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import cl from './TokenCard.module.css'
+import ModalContext from "../../context/ModalContext";
 
 const TokenCard = ({token}) => {
+
+    const {isModalDisabled, setIsModalDisabled, modalContent, setModalContent} = useContext(ModalContext);
+
+    const showModal = () => {
+        setModalContent({...token});
+        setIsModalDisabled(false);
+        console.log(token);
+    }
+
     return(
-        <div className={cl.tokenCard}>
+        <div className={cl.tokenCard} onClick={showModal}>
             <div className={cl.tokenCardHeader}>
                 <div className={cl.tokenCardHeaderTitle}>
             <img src={token.image} alt="" />

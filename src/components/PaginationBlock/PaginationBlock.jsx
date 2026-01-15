@@ -8,6 +8,7 @@ const PaginationBlock = ({page, setPage}) => {
             ? <PaginationButton btnText='Back' onClick={() => setPage(prev => prev - 1)}/>
             : null
             }
+            <h2>{page}</h2>
             {page == 5 // top 100
             ? null
             : <PaginationButton btnText='Next' onClick={() => setPage(prev => prev + 1)}/>
